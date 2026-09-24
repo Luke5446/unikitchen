@@ -1,5 +1,5 @@
 {
- "updated": 1790274557867,
+ "updated": 1790274799461,
  "recipes": [
   {
    "id": "chilli",
@@ -68,11 +68,11 @@
     ]
    ],
    "steps": [
-    "Finely chop the onion, garlic and pepper.",
-    "Heat the oil in a large pan on a medium heat. Fry the onion and pepper for 5 min until soft, then add the garlic for 1 min.",
+    "Finely chop the onion.",
+    "Heat the oil in a large pan on a medium heat. Fry the onion for 5 min until soft, then stir in the garlic paste for 1 min.",
     "Turn the heat up, add the mince and break it up with a wooden spoon. Cook 5–8 min until browned all over.",
     "Stir in the chilli powder, cumin and tomato purée. Cook for 1 min.",
-    "Add the chopped tomatoes, baked beans, drained kidney beans and the stock cube and a mug of boiling water.",
+    "Add the chopped tomatoes, baked beans, drained kidney beans, the stock cube and a mug of boiling water.",
     "Simmer uncovered for 25–30 min, stirring now and then, until thick. Season with salt and pepper.",
     "While it simmers, cook the rice following the packet."
    ]
@@ -471,10 +471,10 @@
    "hue": 30,
    "category": "Chicken",
    "serves": 4,
-   "time": "60 mins",
+   "time": "1 hr",
    "fridge": 3,
    "freeze": "3 months",
-   "blurb": "Saturday soup, best for a cozy weekend",
+   "blurb": "Saturday soup, best for a cosy weekend.",
    "ingredients": [
     [
      "onion",
@@ -491,22 +491,22 @@
     [
      "red-pepper",
      1,
-     "Optional"
+     "optional"
     ],
     [
      "sweet-potato",
      4,
-     "Peal and chop"
+     "peeled and chopped"
     ],
     [
      "white-potato",
      5,
-     "Peal and chop"
+     "peeled and chopped"
     ],
     [
      "carrot",
      4,
-     "Peal and chop"
+     "peeled and chopped"
     ],
     [
      "cinnamon-stick",
@@ -515,7 +515,7 @@
     [
      "mild-curry-powder",
      2,
-     "Dunns Rivers"
+     "Dunn's River"
     ],
     [
      "cinnamon-powder",
@@ -548,37 +548,46 @@
     [
      "vegetable-oil",
      60,
-     "You can use butter"
+     "or butter"
     ],
     [
      "chicken-stockpot",
      2,
-     "Can use stock cubes"
+     "or stock cubes"
     ],
     [
      "fresh-thyme",
      5,
-     "Key ingredient, do not leave out, must be fresh"
+     "must be fresh — key ingredient"
     ],
     [
      "cold-water",
      100,
-     "For cooling pan when frying chicken"
+     "for cooling the pan"
+    ],
+    [
+     "plain-flour",
+     100,
+     "for the dumplings"
+    ],
+    [
+     "milk",
+     30,
+     "a splash, for the dumplings"
     ]
    ],
    "steps": [
-    "Add whole spices to the pan and gently heat. Do not include the thyme yet.",
-    "Add oil to the pan",
-    "Add in all spices to the pan not including the salt, do not let the pan get too hot or the spices will burn",
-    "Add the chicken thighs and stir so the spices cover the chicken. You can add a little bit more of the curry powder over the chicken if needed. If the pan is getting too hot and sticking, add splashes of cold water to cool.",
-    "Dice the onion.and red pepper. Once the chicken is browned add both onion and pepper to the pan and cook until onions turn brown",
-    "Add the garlic paste and stir in",
-    "Add stock.pots and stir",
-    "Fill a kettle, boil and add the whole kettle of water to the pan. Bring the pan to the boil with the lid on, then turn down to simmer and add 4-5 sprigs of thyme and salt",
-    "Now make the spinners (dumpling) In a bowl, mix a splash of milk with 100g of plain flour and a pinch of salt, and combine into a dough. Pull small thumb size pieces off the main board of dough and roll into mini sausage shape.dumplings and add to the pot.",
-    "After 30 minutes .peal and chop all the veg and add to the pot. Top the pan up with boiling water just enough to cover all the veg.",
-    "After another 30 minutes or once all the veg is cooked (soft), taste and season with extra salt if needed. Serves 4-6 people.",
-    "If storing in the fridge or freezer, let the pot cool down before portioning into suitable containers."
+    "Peel and chop the sweet potatoes, white potatoes and carrots, then set them aside. Dice the onion and red pepper.",
+    "Heat the oil in a large pan on a low–medium heat. Add the whole spices (cinnamon stick, bay leaf and cumin seeds) and warm them gently for 1 min. Keep the thyme for later.",
+    "Stir in the ground spices (curry powder, cinnamon, allspice, cayenne and black pepper), but not the salt. Keep the heat low so the spices don't burn.",
+    "Add the chicken thighs and stir until they're coated in the spices. Sprinkle over a little more curry powder if you like. If the pan gets too hot or starts sticking, add a splash of cold water.",
+    "When the chicken is browned, add the onion and pepper. Cook until the onion turns golden.",
+    "Stir in the garlic paste, then the stock pots.",
+    "Boil a full kettle and pour it into the pan. Put the lid on and bring to the boil. Turn down to a simmer, then add 4–5 sprigs of thyme and the salt.",
+    "Make the spinners (dumplings): mix 100g plain flour with a pinch of salt and a splash of milk to make a soft dough. Pull off thumb-sized pieces, roll them into mini sausages and drop them into the pot.",
+    "After 30 min, add the chopped veg. Top up with just enough boiling water to cover it.",
+    "Simmer for another 30 min, until the veg is soft. Taste and add more salt if needed.",
+    "To store, let the soup cool before portioning it into containers for the fridge or freezer."
    ]
   }
  ],
@@ -754,7 +763,7 @@
    "unit": "tsp"
   },
   "all-spice": {
-   "name": "All spice",
+   "name": "Allspice",
    "unit": "tsp"
   },
   "cayenne-pepper": {
@@ -796,6 +805,10 @@
   "baked-beans": {
    "name": "Baked beans",
    "unit": "tin"
+  },
+  "plain-flour": {
+   "name": "plain flour",
+   "unit": "g"
   }
  }
 }
