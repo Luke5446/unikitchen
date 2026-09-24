@@ -384,7 +384,7 @@ function persist(){
     if (!d || !Array.isArray(d.recipes) || (d.updated || 0) <= dataUpdated) return;
     useData(d);
     try { localStorage.removeItem('uk_recipes'); } catch(e){}
-    if (!/^#\/(edit|new)/.test(location.hash)) render(false);
+    if (!document.getElementById('ed')) render(false); // don't wipe an open editor
   }).catch(() => {});
 })();
 function exportRecipes(){
@@ -644,7 +644,11 @@ const HUES = [0,12,28,38,44,60,95,150,180,205,230,265,300,330];
 const UNITS = [['', 'each'], ['g', 'g'], ['ml', 'ml'], ['tsp', 'tsp'], ['tbsp', 'tbsp'], ['tin', 'tin'], ['clove', 'clove']];
 const draft = {emoji: '🍲', hue: 30};
 const slug = s => s.toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'item';
-const findIng = n => { const l = n.toLowerCase(); return Object.keys(ING).find(k => ING[k].name.toLowerCase() === l || (ING[k].plural || '').toLowerCase() === l); };
+// match by name (or plural); with a unit given, prefer the version that uses that unit
+const findIng = (n, unit) => {
+  const l = n.toLowerCase(), ks = Object.keys(ING).filter(k => ING[k].name.toLowerCase() === l || (ING[k].plural || '').toLowerCase() === l);
+  return unit == null ? ks[0] : ks.find(k => ING[k].unit === unit);
+};
 function stepRow(text){
   return `<div class="srow-ed"><textarea class="in-step" rows="2" oninput="fitStep(this)" placeholder="Describe this step">${esc(text || '')}</textarea>
     <div class="smove"><button type="button" aria-label="Move up" onclick="moveStep(this,-1)">▲</button><button type="button" aria-label="Move down" onclick="moveStep(this,1)">▼</button><button type="button" aria-label="Remove step" onclick="removeStep(this)">×</button></div></div>`;
@@ -680,14 +684,13 @@ function ingRow(key, qty, note){
   return `<div class="irow">
     <input class="inp in-name" list="inglist" placeholder="Ingredient, e.g. onion" value="${d ? esc(d.name) : ''}" oninput="ingNameInput(this)">
     <input class="inp in-amt" type="number" inputmode="decimal" min="0" step="any" placeholder="Amount" value="${numStr(qty)}">
-    <select class="in-unit" ${d ? 'disabled' : ''}>${UNITS.map(([u, l]) => `<option value="${u}" ${u === unit ? 'selected' : ''}>${l}</option>`).join('')}</select>
+    <select class="in-unit">${UNITS.map(([u, l]) => `<option value="${u}" ${u === unit ? 'selected' : ''}>${l}</option>`).join('')}</select>
     <input class="inp in-note" placeholder="Note (optional)" value="${esc(note || '')}">
     <button type="button" class="rm" aria-label="Remove" onclick="this.parentNode.remove()">×</button></div>`;
 }
 function ingNameInput(el){
   const k = findIng(el.value.trim()), sel = el.parentNode.querySelector('.in-unit');
   if (k) sel.value = ING[k].unit;
-  sel.disabled = !!k;
 }
 function addIngRow(){
   const box = document.getElementById('irows');
@@ -766,11 +769,16 @@ function saveRecipe(id){
     const n = row.querySelector('.in-name').value.trim();
     if (!n) return;
     const a = row.querySelector('.in-amt').value.trim(), note = row.querySelector('.in-note').value.trim();
-    let key = findIng(n);
-    if (!key) {
-      key = slug(n); let i = 2;
-      while (ING[key]) key = slug(n) + '-' + i++;
-      ING[key] = {name: n, unit: row.querySelector('.in-unit').value};
+    const unit = row.querySelector('.in-unit').value;
+    let key = findIng(n, unit);
+    const same = key ? null : findIng(n);
+    if (same && !RECIPES.some(r => r.id !== id && r.ingredients.some(i => i[0] === same))) {
+      key = same; ING[key].unit = unit; // only this recipe uses it, so just change its unit
+    } else if (!key) {
+      // new ingredient, or another recipe still uses it with the old unit
+      key = slug(n) + (same ? '-' + (unit || 'each') : ''); const base = key; let i = 2;
+      while (ING[key]) key = base + '-' + i++;
+      ING[key] = same ? {...ING[same], unit} : {name: n, unit};
     }
     const qty = a === '' || isNaN(+a) || +a <= 0 ? null : +a;
     ingredients.push(note ? [key, qty, note] : [key, qty]);

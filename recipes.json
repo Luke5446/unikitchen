@@ -1,5 +1,5 @@
 {
- "updated": 1790274799461,
+ "updated": 1790276037668,
  "recipes": [
   {
    "id": "chilli",
@@ -94,12 +94,8 @@
      1
     ],
     [
-     "carrot",
+     "garlic-paste",
      1
-    ],
-    [
-     "garlic",
-     2
     ],
     [
      "beef-mince",
@@ -107,7 +103,7 @@
     ],
     [
      "tomato-puree",
-     2
+     1
     ],
     [
      "chopped-tomatoes",
@@ -115,18 +111,19 @@
     ],
     [
      "oregano",
-     1
+     3
     ],
     [
      "beef-stock",
-     1
+     1,
+     "Optional"
     ],
     [
      "spaghetti",
      400
     ],
     [
-     "oil",
+     "olive-oil",
      1
     ],
     [
@@ -135,10 +132,10 @@
     ]
    ],
    "steps": [
-    "Finely chop the onion, carrot and garlic.",
-    "Heat the oil in a large pan on a medium heat. Fry the onion and carrot for 6–8 min until soft, then add the garlic for 1 min.",
-    "Turn the heat up, add the mince and break it up. Cook 5–8 min until browned.",
-    "Stir in the tomato purée and oregano, then add the chopped tomatoes and the stock cube dissolved in half a mug of boiling water.",
+    "Finely chop the onion",
+    "Heat the oil in a large pan on a medium heat. Fry the onion for 6–8 min until soft, then add the garlic for 1 min.",
+    "Turn the heat up, add the mince, cover in dried oregano and break it up. Cook 5–8 min until browned.",
+    "Stir in the tomato purée and then add the chopped tomatoes and the stock cube.",
     "Simmer on a low heat for 25 min, stirring now and then. Season.",
     "Cook the spaghetti in salted boiling water following the packet. Drain and serve with the sauce."
    ]
@@ -809,6 +806,10 @@
   "plain-flour": {
    "name": "plain flour",
    "unit": "g"
+  },
+  "olive-oil": {
+   "name": "Olive oil",
+   "unit": "tbsp"
   }
  }
 }
